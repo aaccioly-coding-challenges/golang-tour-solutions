@@ -2,12 +2,40 @@
 
 This repository contains my solutions to the exercises in "[A Tour of Go](https://go.dev/tour/)".
 
+## Running the Code
+
+To run the code, you need to have Go installed on your machine. You can download it from the 
+[official Go website](https://go.dev/dl/).
+
+Once you have Go installed, you can use the `tour.go `file to run the exercises. Open a terminal, navigate to the
+directory where the `tour.go` file is located, and run the following command:
+
+```bash
+go run tour.go <module> <program>
+```
+
+Replace `<module>` with the name of the module you want to run and `<program>` with the name of the program you want 
+to run.  For example, to run the `hello` program in the `welcome` module, you would run:
+
+```bash
+go run tour.go welcome hello
+```
+
+Individual exercises are also runnable directly. For example, to run the `hello` exercise in the `welcome` module, 
+you can run:
+
+```bash
+go run welcome/hello/hello.go
+```
+
+On Windows, you may need to use `go run .\welcome\hello\hello.go` instead.
+
 ## License
 
-The original code excerpts from the Go Tour, included or adapted from the official Go Tour repository, are licensed
-under the BSD 3-Clause License by The Go Authors.
+The Go Authors license the original code excerpts from the Go Tour, included or adapted from the official Go Tour 
+repository under the BSD 3-Clause License.
 
-My contributions and modifications are, in practice, not substantial enough to warrant separate licensing, but I have
+My contributions and modifications are, in practice, not significant enough to warrant separate licensing, but I have
 chosen to license this repository under the same BSD 3-Clause License for consistency. See the [LICENSE](LICENSE) file
 for details.
 
