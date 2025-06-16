@@ -1,0 +1,59 @@
+name: Update Go Version
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Run weekly on Sunday at midnight UTC
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  update-go-version:
+    name: Update Go Version
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+          check-latest: true
+          cache: true
+
+      - name: Get latest Go version
+        id: go-version
+        run: |
+          LATEST_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1 | sed 's/go//')
+          echo "latest_version=${LATEST_VERSION}" >> $GITHUB_OUTPUT
+          CURRENT_VERSION=$(grep -oP 'go \K[0-9]+\.[0-9]+(\.[0-9]+)?' go.mod)
+          echo "current_version=${CURRENT_VERSION}" >> $GITHUB_OUTPUT
+          if [ "${LATEST_VERSION}" != "${CURRENT_VERSION}" ]; then
+            echo "update_needed=true" >> $GITHUB_OUTPUT
+          else
+            echo "update_needed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update Go version in go.mod
+        if: steps.go-version.outputs.update_needed == 'true'
+        run: |
+          sed -i "s/go [0-9]\+\.[0-9]\+\(\.[0-9]\+\)\?/go ${{ steps.go-version.outputs.latest_version }}/" go.mod
+          echo "Updated Go version from ${{ steps.go-version.outputs.current_version }} to ${{ steps.go-version.outputs.latest_version }}"
+
+      - name: Create Pull Request
+        if: steps.go-version.outputs.update_needed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update Go version to ${{ steps.go-version.outputs.latest_version }}"
+          title: "chore: update Go version to ${{ steps.go-version.outputs.latest_version }}"
+          body: |
+            This PR updates the Go version from ${{ steps.go-version.outputs.current_version }} to ${{ steps.go-version.outputs.latest_version }}.
+
+            This is an automated PR created by the update-go-version workflow.
+          branch: update-go-version
+          base: main
+          labels: dependencies
