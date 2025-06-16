@@ -45,7 +45,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.go-version.outputs.update_needed == 'true'
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: update Go version to ${{ steps.go-version.outputs.latest_version }}"
@@ -55,5 +55,5 @@ jobs:
 
             This is an automated PR created by the update-go-version workflow.
           branch: update-go-version
-          base: main
+          sign-commits: true
           labels: dependencies
