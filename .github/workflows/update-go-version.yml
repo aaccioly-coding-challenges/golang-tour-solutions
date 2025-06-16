@@ -22,7 +22,6 @@ jobs:
         with:
           go-version-file: 'go.mod'
           check-latest: true
-          cache: true
 
       - name: Get latest Go version
         id: go-version
