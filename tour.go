@@ -36,20 +36,21 @@ func main() {
 	module := flag.Arg(0)
 	program := flag.Arg(1)
 
-	if err := run(module, program); err != nil {
+	output, err := run(module, program)
+	if err != nil {
 		logger.Fatalf("Failed to run %s/%s: %v", module, program, err)
 	}
+	fmt.Print(output)
 }
 
-// run executes the specified program in the given module
-func run(module string, program string) error {
+// run executes the specified program in the given module and returns its output
+func run(module string, program string) (string, error) {
 	programPath := filepath.Join(module, program, program+".go")
 	if _, err := os.Stat(programPath); os.IsNotExist(err) {
-		return fmt.Errorf("program %s not found", programPath)
+		return "", fmt.Errorf("program %s not found", programPath)
 	}
 
 	cmd := exec.Command("go", "run", programPath)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	return cmd.Run()
+	output, err := cmd.CombinedOutput()
+	return string(output), err
 }
