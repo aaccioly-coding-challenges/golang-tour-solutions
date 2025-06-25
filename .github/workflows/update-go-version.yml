@@ -37,6 +37,15 @@ jobs:
             echo "update_needed=false" >> $GITHUB_OUTPUT
           fi
 
+      - name: Import GPG key
+        if: steps.go-version.outputs.update_needed == 'true'
+        uses: crazy-max/ghaction-import-gpg@v5
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+
       - name: Update Go version in go.mod
         if: steps.go-version.outputs.update_needed == 'true'
         run: |
