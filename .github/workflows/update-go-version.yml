@@ -57,6 +57,7 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.ACCIBOT_TOKEN }}
+          committer: "Anthony Accibot <217965051+accibot@users.noreply.github.com>"
           commit-message: "chore: update Go version to ${{ steps.go-version.outputs.latest_version }}"
           title: "chore: update Go version to ${{ steps.go-version.outputs.latest_version }}"
           body: |
@@ -64,5 +65,4 @@ jobs:
 
             This is an automated PR created by the update-go-version workflow.
           branch: update-go-version
-          sign-commits: true
           labels: dependencies
