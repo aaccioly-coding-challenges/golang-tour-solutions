@@ -47,7 +47,7 @@ jobs:
         if: steps.go-version.outputs.update_needed == 'true'
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ACCIBOT_TOKEN }}
           commit-message: "chore: update Go version to ${{ steps.go-version.outputs.latest_version }}"
           title: "chore: update Go version to ${{ steps.go-version.outputs.latest_version }}"
           body: |
