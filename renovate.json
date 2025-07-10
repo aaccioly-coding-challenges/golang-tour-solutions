@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    ":automergeAll",
+    ":enableVulnerabilityAlertsWithLabel(security-update)",
+    ":label(dependencies)"
+  ],
+  "prHourlyLimit": 0,
+  "vulnerabilityAlerts": {
+    "vulnerabilityFixStrategy": "highest"
+  }
+}
