@@ -1,3 +1,3 @@
 module github.com/aaccioly-coding-challenges/golang-tour-solutions
 
-go 1.24.4
+go 1.24.5
