@@ -25,6 +25,12 @@ func TestRun(t *testing.T) {
 			program:     "sandbox",
 			wantContain: "2009-11-10 23:00:00 +0000 UTC",
 		},
+		{
+			name:        "packages_program_prints_favorite_number",
+			module:      "basics",
+			program:     "packages",
+			wantContain: "My favorite number is",
+		},
 	}
 
 	for _, tt := range tests {
@@ -34,13 +40,13 @@ func TestRun(t *testing.T) {
 
 			// Check that there is no error (we expect all tests to succeed)
 			if err != nil {
-				t.Fatalf("run(%q, %q) error = %v, expected no error", 
+				t.Fatalf("run(%q, %q) error = %v, expected no error",
 					tt.module, tt.program, err)
 			}
 
 			// Check that the output contains the expected string
 			if !strings.Contains(got, tt.wantContain) {
-				t.Errorf("run(%q, %q) output = %q, want to contain %q", 
+				t.Errorf("run(%q, %q) output = %q, want to contain %q",
 					tt.module, tt.program, got, tt.wantContain)
 			}
 		})
@@ -81,13 +87,13 @@ func TestRun_InvalidProgram(t *testing.T) {
 
 			// Check that we got an error
 			if err == nil {
-				t.Fatalf("run(%q, %q) expected error but got nil", 
+				t.Fatalf("run(%q, %q) expected error but got nil",
 					tt.module, tt.program)
 			}
 
 			// Check that the error message matches what we expect
 			if err.Error() != tt.expectedError {
-				t.Errorf("run(%q, %q) error = %q, want %q", 
+				t.Errorf("run(%q, %q) error = %q, want %q",
 					tt.module, tt.program, err.Error(), tt.expectedError)
 			}
 		})
