@@ -55,6 +55,18 @@ func TestRun(t *testing.T) {
 			program:     "functions-continued",
 			wantContain: "55",
 		},
+		{
+			name:        "multiple_results_program_prints_swapped_values",
+			module:      "basics",
+			program:     "multiple-results",
+			wantContain: "world hello",
+		},
+		{
+			name:        "named_results_program_splits_numbers",
+			module:      "basics",
+			program:     "named-results",
+			wantContain: "7 10",
+		},
 	}
 
 	for _, tt := range tests {
