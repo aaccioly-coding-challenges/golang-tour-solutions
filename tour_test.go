@@ -49,6 +49,12 @@ func TestRun(t *testing.T) {
 			program:     "functions",
 			wantContain: "55",
 		},
+		{
+			name:        "functions_continued_program_also_prints_sum",
+			module:      "basics",
+			program:     "functions-continued",
+			wantContain: "55",
+		},
 	}
 
 	for _, tt := range tests {
