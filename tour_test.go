@@ -43,6 +43,12 @@ func TestRun(t *testing.T) {
 			program:     "exported-names",
 			wantContain: "3.141592653589793",
 		},
+		{
+			name:        "functions_program_prints_sum",
+			module:      "basics",
+			program:     "functions",
+			wantContain: "55",
+		},
 	}
 
 	for _, tt := range tests {
