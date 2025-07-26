@@ -31,6 +31,12 @@ func TestRun(t *testing.T) {
 			program:     "packages",
 			wantContain: "My favorite number is",
 		},
+		{
+			name:        "imports_program_prints_sqrt",
+			module:      "basics",
+			program:     "imports",
+			wantContain: "Now you have 2.6457513110645907 problems.\n",
+		},
 	}
 
 	for _, tt := range tests {
