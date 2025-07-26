@@ -37,6 +37,12 @@ func TestRun(t *testing.T) {
 			program:     "imports",
 			wantContain: "Now you have 2.6457513110645907 problems.\n",
 		},
+		{
+			name:        "exported_names_program_prints_pi",
+			module:      "basics",
+			program:     "exported-names",
+			wantContain: "3.141592653589793",
+		},
 	}
 
 	for _, tt := range tests {
