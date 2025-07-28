@@ -85,6 +85,12 @@ func TestRun(t *testing.T) {
 			program:     "short-variable-declaration",
 			wantContain: "1 2 3 true false no!",
 		},
+		{
+			name:        "basic_types_program_prints_types_and_values",
+			module:      "basics",
+			program:     "basic-types",
+			wantContain: "Type: bool Value: false\nType: uint64 Value: 18446744073709551615\nType: complex128 Value: (2+3i)",
+		},
 	}
 
 	for _, tt := range tests {
