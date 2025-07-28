@@ -79,6 +79,12 @@ func TestRun(t *testing.T) {
 			program:     "variables-with-initializers",
 			wantContain: "1 2 true false no!",
 		},
+		{
+			name:        "short_variable_declaration_program_prints_values",
+			module:      "basics",
+			program:     "short-variable-declaration",
+			wantContain: "1 2 3 true false no!",
+		},
 	}
 
 	for _, tt := range tests {
