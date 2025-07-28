@@ -91,6 +91,12 @@ func TestRun(t *testing.T) {
 			program:     "basic-types",
 			wantContain: "Type: bool Value: false\nType: uint64 Value: 18446744073709551615\nType: complex128 Value: (2+3i)",
 		},
+		{
+			name:        "zero_program_prints_zero_values",
+			module:      "basics",
+			program:     "zero",
+			wantContain: "0 0 false \"\"",
+		},
 	}
 
 	for _, tt := range tests {
