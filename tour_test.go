@@ -67,6 +67,12 @@ func TestRun(t *testing.T) {
 			program:     "named-results",
 			wantContain: "7 10",
 		},
+		{
+			name:        "variables_program_prints_zero_values",
+			module:      "basics",
+			program:     "variables",
+			wantContain: "0 false false false",
+		},
 	}
 
 	for _, tt := range tests {
