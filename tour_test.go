@@ -103,6 +103,12 @@ func TestRun(t *testing.T) {
 			program:     "type-conversions",
 			wantContain: "3 4 5",
 		},
+		{
+			name:        "type_inference_program_prints_types",
+			module:      "basics",
+			program:     "type-inference",
+			wantContain: "v is of type int",
+		},
 	}
 
 	for _, tt := range tests {
