@@ -97,6 +97,12 @@ func TestRun(t *testing.T) {
 			program:     "zero",
 			wantContain: "0 0 false \"\"",
 		},
+		{
+			name:        "type_conversions_program_prints_converted_values",
+			module:      "basics",
+			program:     "type-conversions",
+			wantContain: "3 4 5",
+		},
 	}
 
 	for _, tt := range tests {
