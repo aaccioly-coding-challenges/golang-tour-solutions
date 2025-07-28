@@ -73,6 +73,12 @@ func TestRun(t *testing.T) {
 			program:     "variables",
 			wantContain: "0 false false false",
 		},
+		{
+			name:        "variables_with_initializers_program_prints_values",
+			module:      "basics",
+			program:     "variables-with-initializers",
+			wantContain: "1 2 true false no!",
+		},
 	}
 
 	for _, tt := range tests {
