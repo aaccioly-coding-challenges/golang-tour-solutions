@@ -115,6 +115,12 @@ func TestRun(t *testing.T) {
 			program:     "constants",
 			wantContain: "Hello 世界\nHappy 3.14 Day\nGo rules? true",
 		},
+		{
+			name:        "numeric_constants_program_prints_numeric_constants",
+			module:      "basics",
+			program:     "numeric-constants",
+			wantContain: "21\n0.2\n1.2676506002282295e+29",
+		},
 	}
 
 	for _, tt := range tests {
