@@ -109,6 +109,12 @@ func TestRun(t *testing.T) {
 			program:     "type-inference",
 			wantContain: "v is of type int",
 		},
+		{
+			name:        "constants_program_prints_constants",
+			module:      "basics",
+			program:     "constants",
+			wantContain: "Hello 世界\nHappy 3.14 Day\nGo rules? true",
+		},
 	}
 
 	for _, tt := range tests {
