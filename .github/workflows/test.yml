@@ -38,7 +38,7 @@ jobs:
           if_no_artifact_found: warn
 
       - name: Check test coverage
-        uses: vladopajic/go-test-coverage@v2
+        uses: vladopajic/go-test-coverage@d4177aaab9307eb783516275d495c01254da2fb9 # v2
         continue-on-error: true
         with:
           config: ./.testcoverage.yml
@@ -48,7 +48,7 @@ jobs:
           diff-base-breakdown-file-name: ${{ steps.download-main-breakdown.outputs.found_artifact == 'true' && 'main.breakdown' || '' }}
 
       - name: Upload coverage breakdown
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: github.ref_name == 'main'
         with:
           name: main.breakdown
@@ -68,7 +68,7 @@ jobs:
           fi
       - name: Post coverage report
         if: env.pull_request_id
-        uses: thollander/actions-comment-pull-request@v3
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           comment-tag: coverage-report
