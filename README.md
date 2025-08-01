@@ -1,5 +1,10 @@
 # A Tour of Go Solutions
 
+[![tests](https://github.com/aaccioly-coding-challenges/golang-tour-solutions/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/aaccioly-coding-challenges/golang-tour-solutions/actions/workflows/test.yml)
+[![lint](https://github.com/aaccioly-coding-challenges/golang-tour-solutions/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/aaccioly-coding-challenges/golang-tour-solutions/actions/workflows/lint.yml)
+[![coverage](https://raw.githubusercontent.com/aaccioly-coding-challenges/golang-tour-solutions/badges/.badges/main/coverage.svg)](./.testcoverage.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/aaccioly-coding-challenges/golang-tour-solutions?cache=v1)](https://goreportcard.com/report/github.com/aaccioly-coding-challenges/golang-tour-solutions)
+
 This repository contains my solutions to the exercises in "[A Tour of Go](https://go.dev/tour/)".
 
 ## Running the Code
