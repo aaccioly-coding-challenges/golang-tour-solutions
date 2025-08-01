@@ -1,0 +1,39 @@
+# (mandatory)
+# Path to coverage profile file (output of `go test -coverprofile` command).
+#
+# For cases where there are many coverage profiles, such as when running
+# unit tests and integration tests separately, you can combine all those
+# profiles into one. In this case, the profile should have a comma-separated list
+# of profile files, e.g., 'cover_unit.out,cover_integration.out'.
+profile: cover.out
+
+# Holds coverage thresholds percentages, values should be in range [0-100].
+threshold:
+  # (optional; default 0)
+  # Minimum coverage percentage required for individual files.
+  file: 100
+
+  # (optional; default 0)
+  # Minimum coverage percentage required for each package.
+  package: 100
+
+  # (optional; default 0)
+  # Minimum overall project coverage percentage required.
+  total: 100
+
+
+# If specified, saves the current test coverage breakdown to this file.
+#
+# Typically, this breakdown is generated only for main (base) branches and
+# stored as an artifact. Later, this file can be used in feature branches
+# to compare test coverage against the base branch.
+breakdown-file-name: 'main.breakdown'
+
+diff:
+  # Path to the test coverage breakdown file from the base branch.
+  #
+  # This file is usually generated and stored in the main (base) branch,
+  # controled via `breakdown-file-name` property.
+  # When set in a feature branch, it allows the tool to compute and report
+  # the coverage difference between the current (feature) branch and the base.
+  base-breakdown-file-name: 'main.breakdown'
