@@ -2,8 +2,6 @@ name: test
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -60,7 +58,7 @@ jobs:
           PR_DATA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             "https://api.github.com/repos/${{ github.repository }}/pulls?head=${{ github.repository_owner }}:${{ github.ref_name }}&state=open")
           PR_ID=$(echo "$PR_DATA" | jq -r '.[0].number')
-
+          
           if [ "$PR_ID" != "null" ]; then
             echo "pull_request_id=$PR_ID" >> $GITHUB_ENV
           else
