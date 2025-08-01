@@ -12,10 +12,23 @@ import (
 	"path/filepath"
 )
 
+// Logger interface for dependency injection to enable testing of Fatal calls
+type Logger interface {
+	Printf(format string, v ...interface{})
+	Println(v ...interface{})
+	Fatal(v ...interface{})
+	Fatalf(format string, v ...interface{})
+}
+
 // main initializes and runs the tour example CLI, which executes
 // specific examples from the Go tour by providing a module and program name.
 func main() {
 	logger := log.New(os.Stderr, "", 0)
+	runMain(logger)
+}
+
+// runMain contains the main logic and accepts a logger for dependency injection
+func runMain(logger Logger) {
 
 	flag.Usage = func() {
 		logger.Printf("Usage: %s <module> <program>", os.Args[0])

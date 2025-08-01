@@ -26,6 +26,7 @@ go.work.sum
 
 # Build output
 /golang-tour-solutions
+/tour
 
 # env file
 .env
