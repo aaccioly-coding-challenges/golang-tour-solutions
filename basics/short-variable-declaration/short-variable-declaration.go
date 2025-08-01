@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var i, j int = 1, 2
+	var i, j int = 1, 2 //nolint:staticcheck
 	k := 3
 	c, python, java := true, false, "no!"
 
