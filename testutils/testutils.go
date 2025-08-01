@@ -17,11 +17,12 @@ func CaptureMainOutput(mainFunc func()) string {
 	mainFunc()
 
 	// Restore stdout
-	w.Close()
+	_ = w.Close()
 	os.Stdout = old
 
 	// Read captured output
 	var buf bytes.Buffer
-	buf.ReadFrom(r)
+	_, _ = buf.ReadFrom(r)
+
 	return buf.String()
 }

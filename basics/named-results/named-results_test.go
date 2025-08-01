@@ -1,7 +1,6 @@
 package main
 
 import (
-	"strings"
 	"testing"
 
 	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
@@ -9,8 +8,8 @@ import (
 
 func TestNamedResultsProgram(t *testing.T) {
 	output := testutils.CaptureMainOutput(main)
-	expected := "7 10"
-	if !strings.Contains(output, expected) {
-		t.Errorf("Expected output to contain %q, got %q", expected, output)
+	expected := "7 10\n"
+	if output != expected {
+		t.Errorf("Expected output %q, got %q", expected, output)
 	}
 }

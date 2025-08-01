@@ -1,7 +1,7 @@
 package main
 
 import (
-	"strings"
+	"regexp"
 	"testing"
 
 	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
@@ -9,8 +9,14 @@ import (
 
 func TestPackagesProgram(t *testing.T) {
 	output := testutils.CaptureMainOutput(main)
-	expected := "My favorite number is"
-	if !strings.Contains(output, expected) {
-		t.Errorf("Expected output to contain %q, got %q", expected, output)
+	
+	// The program outputs "My favorite number is X" where X is a random number from 0-9
+	expectedPattern := `^My favorite number is [0-9]\n$`
+	matched, err := regexp.MatchString(expectedPattern, output)
+	if err != nil {
+		t.Fatalf("Failed to compile regex pattern: %v", err)
+	}
+	if !matched {
+		t.Errorf("Expected output to match pattern %q, got %q", expectedPattern, output)
 	}
 }

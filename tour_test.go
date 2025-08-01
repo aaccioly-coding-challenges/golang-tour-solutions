@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"regexp"
 	"strings"
 	"testing"
 
@@ -20,16 +21,20 @@ func TestTourPositive(t *testing.T) {
 		name           string
 		args           []string
 		expectedOutput string
+		useRegex       bool
+		regexPattern   string
 	}{
 		{
 			name:           "successful_execution_welcome_hello",
 			args:           []string{"tour", "welcome", "hello"},
-			expectedOutput: "Hello, 世界",
+			expectedOutput: "Hello, 世界\n",
+			useRegex:       false,
 		},
 		{
-			name:           "successful_execution_basics_packages",
-			args:           []string{"tour", "basics", "packages"},
-			expectedOutput: "My favorite number is",
+			name:         "successful_execution_basics_packages",
+			args:         []string{"tour", "basics", "packages"},
+			useRegex:     true,
+			regexPattern: `^My favorite number is [0-9]\n$`,
 		},
 	}
 
@@ -37,8 +42,19 @@ func TestTourPositive(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			os.Args = tt.args
 			output := testutils.CaptureMainOutput(main)
-			if !strings.Contains(output, tt.expectedOutput) {
-				t.Errorf("Expected output to contain %q, got %q", tt.expectedOutput, output)
+			
+			if tt.useRegex {
+				matched, err := regexp.MatchString(tt.regexPattern, output)
+				if err != nil {
+					t.Fatalf("Failed to compile regex pattern: %v", err)
+				}
+				if !matched {
+					t.Errorf("Expected output to match pattern %q, got %q", tt.regexPattern, output)
+				}
+			} else {
+				if output != tt.expectedOutput {
+					t.Errorf("Expected output %q, got %q", tt.expectedOutput, output)
+				}
 			}
 		})
 	}
