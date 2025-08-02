@@ -36,6 +36,7 @@ jobs:
           if_no_artifact_found: warn
 
       - name: Check test coverage
+        id: coverage
         uses: vladopajic/go-test-coverage@d4177aaab9307eb783516275d495c01254da2fb9 # v2
         continue-on-error: true
         with:
