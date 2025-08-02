@@ -1,9 +1,8 @@
 package main
 
 import (
-	"testing"
-
 	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"testing"
 )
 
 func TestImportsProgram(t *testing.T) {
