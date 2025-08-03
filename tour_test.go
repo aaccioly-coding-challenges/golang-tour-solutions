@@ -42,7 +42,7 @@ func TestTourPositive(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			os.Args = tt.args
 			output := testutils.CaptureMainOutput(main)
-			
+
 			if tt.useRegex {
 				matched, err := regexp.MatchString(tt.regexPattern, output)
 				if err != nil {
