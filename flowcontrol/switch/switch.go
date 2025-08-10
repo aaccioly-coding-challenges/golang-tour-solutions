@@ -3,18 +3,26 @@ package main
 import (
 	"fmt"
 	"runtime"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 func main() {
-	fmt.Println("Go runs on")
-	switch os := runtime.GOOS; os {
+	fmt.Print("Go runs on ")
+	os := runtime.GOOS
+	fmt.Println(switchOs(os))
+}
+
+func switchOs(os string) string {
+	switch os {
 	case "darwin":
-		fmt.Println("macOS.")
+		return "macOS."
 	case "linux":
-		fmt.Println("Linux.")
+		return "Linux."
 	default:
-		// freebsd, openbsd,
-		// plan9, windows...
-		fmt.Printf("%s.\n", os)
+		// Freebsd, Openbsd,
+		// Plan9, Windows...
+		return fmt.Sprintf("%s.", cases.Title(language.Und).String(os))
 	}
 }
