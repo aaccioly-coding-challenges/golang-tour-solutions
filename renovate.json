@@ -6,6 +6,9 @@
     ":enableVulnerabilityAlertsWithLabel(security-update)",
     ":label(dependencies)"
   ],
+  "postUpdateOptions": [
+    "gomodTidy"
+  ],
   "prHourlyLimit": 0,
   "vulnerabilityAlerts": {
     "vulnerabilityFixStrategy": "highest"
