@@ -37,7 +37,7 @@ jobs:
 
       - name: Check test coverage
         id: coverage
-        uses: vladopajic/go-test-coverage@25e532f3851a634ecd07a4cad2a2645aee49fa7a # v2
+        uses: vladopajic/go-test-coverage@57e850c853caa94bdc29b98a08bf770bbb394497 # v2
         continue-on-error: true
         with:
           config: ./.testcoverage.yml
