@@ -6,7 +6,7 @@ import (
 	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
 )
 
-func TestInterfaceValuesWithNilUnderlyingValues(t *testing.T) {
+func TestInterfaceValuesWithNilUnderlyingValuesProgram(t *testing.T) {
 	output := testutils.CaptureMainOutput(main)
 	expected := "(<nil>, *main.T)\n<nil>\n(&{hello}, *main.T)\nhello\n"
 
