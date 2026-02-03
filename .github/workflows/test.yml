@@ -24,7 +24,7 @@ jobs:
           go-version-file: 'go.mod'
 
       - name: Run tests
-        run: go test ./... -coverprofile=./cover.out -covermode=atomic -coverpkg=./...
+        run: go test ./... -coverprofile=./cover.out -covermode=atomic
 
       - name: Download coverage breakdown
         id: download-main-breakdown
