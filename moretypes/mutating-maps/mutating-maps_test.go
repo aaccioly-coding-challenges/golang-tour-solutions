@@ -7,7 +7,7 @@ import (
 )
 
 func TestMutatingMapsProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "The value: 42\nThe value: 48\nThe value: 0\nThe value: 0 Present? false\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

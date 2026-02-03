@@ -7,7 +7,7 @@ import (
 )
 
 func TestInterfaceValuesWithNilUnderlyingValuesProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "(<nil>, *main.T)\n<nil>\n(&{hello}, *main.T)\nhello\n"
 
 	if output != expected {

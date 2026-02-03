@@ -6,7 +6,7 @@ import (
 )
 
 func TestForContinuedProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 
 	// The program outputs the sum of numbers until it reaches or exceeds 1000
 	expectedOutput := "1024\n"

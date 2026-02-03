@@ -7,7 +7,7 @@ import (
 )
 
 func TestMethodsProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "5\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

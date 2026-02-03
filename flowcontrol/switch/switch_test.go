@@ -8,7 +8,7 @@ import (
 )
 
 func TestSwitchProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	pattern := `^Go runs on \w+\.\n$`
 	matched, _ := regexp.MatchString(pattern, output)
 	if !matched {

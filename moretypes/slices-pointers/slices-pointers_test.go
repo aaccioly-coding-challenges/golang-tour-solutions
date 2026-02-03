@@ -7,7 +7,7 @@ import (
 )
 
 func TestSlicesPointersProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "[John Paul George Ringo]\n[John Paul] [Paul George]\n[John XXX] [XXX George]\n[John XXX George Ringo]\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

@@ -7,7 +7,7 @@ import (
 )
 
 func TestDeferProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "hello\nworld\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

@@ -6,15 +6,15 @@ import (
 	"os"
 )
 
-// CaptureMainOutput captures stdout while running the provided main function and returns the output
-func CaptureMainOutput(mainFunc func()) string {
-	output, _ := CaptureMainOutputWithPanic(mainFunc)
+// CaptureOutput captures stdout while running the provided function and returns the output
+func CaptureOutput(f func()) string {
+	output, _ := CaptureOutputWithPanic(f)
 	return output
 }
 
-// CaptureMainOutputWithPanic captures stdout while running the provided main function.
+// CaptureOutputWithPanic captures stdout while running the provided function.
 // It returns the captured output and any panic that occurred.
-func CaptureMainOutputWithPanic(mainFunc func()) (output string, recovered any) {
+func CaptureOutputWithPanic(f func()) (output string, recovered any) {
 	// Capture stdout
 	old := os.Stdout
 	r, w, _ := os.Pipe()
@@ -33,6 +33,6 @@ func CaptureMainOutputWithPanic(mainFunc func()) (output string, recovered any) 
 		recovered = recover()
 	}()
 
-	mainFunc()
+	f()
 	return
 }

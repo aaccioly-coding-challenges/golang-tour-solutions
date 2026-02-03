@@ -7,7 +7,7 @@ import (
 )
 
 func TestMapsProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "{40.68433 -74.39967}\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

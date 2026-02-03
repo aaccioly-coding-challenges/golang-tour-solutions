@@ -7,7 +7,7 @@ import (
 )
 
 func TestEmptyInterfaceProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "(<nil>, <nil>)\n(42, int)\n(hello, string)\n"
 
 	if output != expected {

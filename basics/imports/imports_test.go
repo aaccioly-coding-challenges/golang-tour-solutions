@@ -7,7 +7,7 @@ import (
 )
 
 func TestImportsProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "Now you have 2.6457513110645907 problems.\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

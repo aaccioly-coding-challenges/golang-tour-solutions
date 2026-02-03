@@ -7,7 +7,7 @@ import (
 )
 
 func TestMethodsAndPointerIndirectionProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "{60 80} &{96 72}\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

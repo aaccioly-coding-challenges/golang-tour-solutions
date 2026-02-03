@@ -6,7 +6,7 @@ import (
 )
 
 func TestForProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 
 	// The program outputs the sum of numbers from 0 to 9, which is 45
 	expectedOutput := "45\n"

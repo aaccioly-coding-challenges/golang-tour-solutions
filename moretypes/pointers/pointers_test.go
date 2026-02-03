@@ -7,7 +7,7 @@ import (
 )
 
 func TestPointersProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "42\n21\n73\n"
 
 	if output != expected {

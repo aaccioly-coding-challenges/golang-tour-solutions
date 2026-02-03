@@ -7,7 +7,7 @@ import (
 )
 
 func TestNilInterfaceValuesProgram(t *testing.T) {
-	output, recovered := testutils.CaptureMainOutputWithPanic(main)
+	output, recovered := testutils.CaptureOutputWithPanic(main)
 	expectedOutput := "(<nil>, <nil>)\n"
 	if output != expectedOutput {
 		t.Errorf("Expected output to be '%s', but got '%s'", expectedOutput, output)

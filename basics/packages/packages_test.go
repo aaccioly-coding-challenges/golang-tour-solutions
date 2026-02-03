@@ -8,7 +8,7 @@ import (
 )
 
 func TestPackagesProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 
 	// The program outputs "My favorite number is X" where X is a random number from 0-9
 	expectedPattern := `^My favorite number is [0-9]\n$`

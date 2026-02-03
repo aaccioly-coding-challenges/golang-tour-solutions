@@ -6,7 +6,7 @@ import (
 )
 
 func TestForIsGoWhileProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "1024\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

@@ -9,7 +9,7 @@ import (
 )
 
 func TestSwithEvaluationOrderProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expectedPattern := `^When's Saturday\?\n(Today|Tomorrow|In two days|Too far away)\.\n$`
 	matched, err := regexp.MatchString(expectedPattern, output)
 	if err != nil {

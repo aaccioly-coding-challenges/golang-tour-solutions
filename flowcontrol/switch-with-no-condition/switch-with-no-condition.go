@@ -7,6 +7,10 @@ import (
 
 func main() {
 	t := time.Now()
+	greet(t)
+}
+
+func greet(t time.Time) {
 	switch {
 	case t.Hour() < 12:
 		fmt.Println("Good morning!")
@@ -15,4 +19,5 @@ func main() {
 	default:
 		fmt.Println("Good evening.")
 	}
+
 }

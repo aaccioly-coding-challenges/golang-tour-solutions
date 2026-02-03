@@ -7,7 +7,7 @@ import (
 )
 
 func TestFunctionValuesProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "13\n5\n81\n"
 
 	if output != expected {

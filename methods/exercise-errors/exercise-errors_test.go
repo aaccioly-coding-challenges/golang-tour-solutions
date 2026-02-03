@@ -8,7 +8,7 @@ import (
 )
 
 func TestExerciseErrorsProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "1.4142135623746899 <nil>\n0 cannot Sqrt negative number: -2\n"
 
 	if output != expected {

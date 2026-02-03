@@ -7,11 +7,11 @@ import (
 	"testing"
 )
 
-// TestCaptureMainOutput_BasicOutput tests basic stdout capture functionality
-func TestCaptureMainOutput_BasicOutput(t *testing.T) {
+// TestCaptureOutput_BasicOutput tests basic stdout capture functionality
+func TestCaptureOutput_BasicOutput(t *testing.T) {
 	expected := "Hello, World!"
 
-	output := CaptureMainOutput(func() {
+	output := CaptureOutput(func() {
 		fmt.Print(expected)
 	})
 
@@ -20,15 +20,15 @@ func TestCaptureMainOutput_BasicOutput(t *testing.T) {
 	}
 }
 
-// TestCaptureMainOutput_MultilineOutput tests capture of multiple lines
-func TestCaptureMainOutput_MultilineOutput(t *testing.T) {
+// TestCaptureOutput_MultilineOutput tests capture of multiple lines
+func TestCaptureOutput_MultilineOutput(t *testing.T) {
 	testFunc := func() {
 		fmt.Println("Line 1")
 		fmt.Println("Line 2")
 		fmt.Print("Line 3")
 	}
 
-	output := CaptureMainOutput(testFunc)
+	output := CaptureOutput(testFunc)
 	expected := "Line 1\nLine 2\nLine 3"
 
 	if output != expected {
@@ -36,11 +36,11 @@ func TestCaptureMainOutput_MultilineOutput(t *testing.T) {
 	}
 }
 
-// TestCaptureMainOutput_UnicodeAndSpecialChars tests Unicode and special characters
-func TestCaptureMainOutput_UnicodeAndSpecialChars(t *testing.T) {
+// TestCaptureOutput_UnicodeAndSpecialChars tests Unicode and special characters
+func TestCaptureOutput_UnicodeAndSpecialChars(t *testing.T) {
 	expected := "Hello, 世界! 🌍 Special chars: @#$%^&*()"
 
-	output := CaptureMainOutput(func() {
+	output := CaptureOutput(func() {
 		fmt.Print(expected)
 	})
 
@@ -49,9 +49,9 @@ func TestCaptureMainOutput_UnicodeAndSpecialChars(t *testing.T) {
 	}
 }
 
-// TestCaptureMainOutput_EmptyOutput tests handling of functions that produce no output
-func TestCaptureMainOutput_EmptyOutput(t *testing.T) {
-	output := CaptureMainOutput(func() {
+// TestCaptureOutput_EmptyOutput tests handling of functions that produce no output
+func TestCaptureOutput_EmptyOutput(t *testing.T) {
+	output := CaptureOutput(func() {
 		// Function that produces no output
 	})
 
@@ -60,13 +60,13 @@ func TestCaptureMainOutput_EmptyOutput(t *testing.T) {
 	}
 }
 
-// TestCaptureMainOutput_StdoutRestoration tests that stdout is properly restored
-func TestCaptureMainOutput_StdoutRestoration(t *testing.T) {
+// TestCaptureOutput_StdoutRestoration tests that stdout is properly restored
+func TestCaptureOutput_StdoutRestoration(t *testing.T) {
 	// Save original stdout
 	originalStdout := os.Stdout
 
 	// Capture some output
-	output := CaptureMainOutput(func() {
+	output := CaptureOutput(func() {
 		fmt.Print("test output")
 	})
 
@@ -77,24 +77,24 @@ func TestCaptureMainOutput_StdoutRestoration(t *testing.T) {
 
 	// Verify stdout was restored to original
 	if os.Stdout != originalStdout {
-		t.Error("stdout was not properly restored after CaptureMainOutput")
+		t.Error("stdout was not properly restored after CaptureOutput")
 	}
 }
 
-// TestCaptureMainOutput_MultipleCaptures tests multiple consecutive captures
-func TestCaptureMainOutput_MultipleCaptures(t *testing.T) {
+// TestCaptureOutput_MultipleCaptures tests multiple consecutive captures
+func TestCaptureOutput_MultipleCaptures(t *testing.T) {
 	// First capture
-	output1 := CaptureMainOutput(func() {
+	output1 := CaptureOutput(func() {
 		fmt.Print("First capture")
 	})
 
 	// Second capture
-	output2 := CaptureMainOutput(func() {
+	output2 := CaptureOutput(func() {
 		fmt.Print("Second capture")
 	})
 
 	// Third capture
-	output3 := CaptureMainOutput(func() {
+	output3 := CaptureOutput(func() {
 		fmt.Print("Third capture")
 	})
 
@@ -110,8 +110,8 @@ func TestCaptureMainOutput_MultipleCaptures(t *testing.T) {
 	}
 }
 
-// TestCaptureMainOutput_LargeOutput tests handling of large amounts of output
-func TestCaptureMainOutput_LargeOutput(t *testing.T) {
+// TestCaptureOutput_LargeOutput tests handling of large amounts of output
+func TestCaptureOutput_LargeOutput(t *testing.T) {
 	// Generate a large string
 	var expectedBuilder strings.Builder
 	for i := 0; i < 1000; i++ {
@@ -119,7 +119,7 @@ func TestCaptureMainOutput_LargeOutput(t *testing.T) {
 	}
 	expected := expectedBuilder.String()
 
-	output := CaptureMainOutput(func() {
+	output := CaptureOutput(func() {
 		for i := 0; i < 1000; i++ {
 			fmt.Printf("Line %d\n", i)
 		}
@@ -137,11 +137,11 @@ func TestCaptureMainOutput_LargeOutput(t *testing.T) {
 	}
 }
 
-// TestCaptureMainOutput_FunctionExecution tests that the provided function is actually executed
-func TestCaptureMainOutput_FunctionExecution(t *testing.T) {
+// TestCaptureOutput_FunctionExecution tests that the provided function is actually executed
+func TestCaptureOutput_FunctionExecution(t *testing.T) {
 	executed := false
 
-	CaptureMainOutput(func() {
+	CaptureOutput(func() {
 		executed = true
 		fmt.Print("Function executed")
 	})
@@ -151,9 +151,9 @@ func TestCaptureMainOutput_FunctionExecution(t *testing.T) {
 	}
 }
 
-// TestCaptureMainOutput_MixedOutputTypes tests different types of output functions
-func TestCaptureMainOutput_MixedOutputTypes(t *testing.T) {
-	output := CaptureMainOutput(func() {
+// TestCaptureOutput_MixedOutputTypes tests different types of output functions
+func TestCaptureOutput_MixedOutputTypes(t *testing.T) {
+	output := CaptureOutput(func() {
 		fmt.Print("Print: ")
 		fmt.Printf("Printf %d ", 42)
 		fmt.Println("Println")
@@ -163,5 +163,51 @@ func TestCaptureMainOutput_MixedOutputTypes(t *testing.T) {
 	expected := "Print: Printf 42 Println\nFprint"
 	if output != expected {
 		t.Errorf("Expected %q, got %q", expected, output)
+	}
+}
+
+// TestCaptureOutputWithPanic_NoPanic tests CaptureOutputWithPanic when no panic occurs
+func TestCaptureOutputWithPanic_NoPanic(t *testing.T) {
+	expectedOutput := "No panic here"
+	output, recovered := CaptureOutputWithPanic(func() {
+		fmt.Print(expectedOutput)
+	})
+
+	if output != expectedOutput {
+		t.Errorf("Expected output %q, got %q", expectedOutput, output)
+	}
+	if recovered != nil {
+		t.Errorf("Expected nil recovered, got %v", recovered)
+	}
+}
+
+// TestCaptureOutputWithPanic_WithPanic tests CaptureOutputWithPanic when a panic occurs
+func TestCaptureOutputWithPanic_WithPanic(t *testing.T) {
+	expectedOutput := "Before panic"
+	panicValue := "something went wrong"
+
+	output, recovered := CaptureOutputWithPanic(func() {
+		fmt.Print(expectedOutput)
+		panic(panicValue)
+	})
+
+	if output != expectedOutput {
+		t.Errorf("Expected output %q, got %q", expectedOutput, output)
+	}
+	if recovered != panicValue {
+		t.Errorf("Expected recovered %v, got %v", panicValue, recovered)
+	}
+}
+
+// TestCaptureOutputWithPanic_StdoutRestoration tests that stdout is properly restored even after a panic
+func TestCaptureOutputWithPanic_StdoutRestoration(t *testing.T) {
+	originalStdout := os.Stdout
+
+	_, _ = CaptureOutputWithPanic(func() {
+		panic("panic!")
+	})
+
+	if os.Stdout != originalStdout {
+		t.Error("stdout was not properly restored after CaptureOutputWithPanic with panic")
 	}
 }

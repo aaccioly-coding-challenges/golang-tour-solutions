@@ -35,7 +35,7 @@ func TestSqrt(t *testing.T) {
 }
 
 func TestNewtonRaphsonProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "1.4142135623730951\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

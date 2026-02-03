@@ -7,7 +7,7 @@ import (
 )
 
 func TestStructFieldsProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "4\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

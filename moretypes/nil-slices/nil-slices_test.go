@@ -7,7 +7,7 @@ import (
 )
 
 func TestNilSlicesProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "[] 0 0\nnil!\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

@@ -7,7 +7,7 @@ import (
 )
 
 func TestMultipleResultsProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "world hello\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

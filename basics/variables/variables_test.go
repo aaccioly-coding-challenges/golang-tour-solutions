@@ -7,7 +7,7 @@ import (
 )
 
 func TestVariablesProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "0 false false false\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

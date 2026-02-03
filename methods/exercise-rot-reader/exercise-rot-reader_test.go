@@ -7,7 +7,7 @@ import (
 )
 
 func TestRot13Program(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "You cracked the code!"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

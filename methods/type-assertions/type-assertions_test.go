@@ -7,7 +7,7 @@ import (
 )
 
 func TestTypeAssertionsProgram(t *testing.T) {
-	output, recovered := testutils.CaptureMainOutputWithPanic(main)
+	output, recovered := testutils.CaptureOutputWithPanic(main)
 	expectedOutput := "hello\nhello true\n0 false\n"
 	if output != expectedOutput {
 		t.Errorf("Expected output %q, got %q", expectedOutput, output)

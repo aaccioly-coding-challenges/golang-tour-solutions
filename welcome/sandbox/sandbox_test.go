@@ -8,7 +8,7 @@ import (
 )
 
 func TestSandboxProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 
 	// Single multiline pattern that matches the entire expected output structure
 	expectedPattern := "^Welcome to the playground!\n" +

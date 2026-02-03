@@ -7,7 +7,7 @@ import (
 )
 
 func TestStructsProgram(t *testing.T) {
-	output := testutils.CaptureMainOutput(main)
+	output := testutils.CaptureOutput(main)
 	expected := "{1 2}\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)
