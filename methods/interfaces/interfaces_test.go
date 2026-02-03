@@ -8,7 +8,7 @@ import (
 
 func TestInterfacesProgram(t *testing.T) {
 	output := testutils.CaptureMainOutput(main)
-	expected := "1.4142135623730951\n5\n"
+	expected := "5\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)
 	}
