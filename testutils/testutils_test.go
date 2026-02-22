@@ -115,7 +115,7 @@ func TestCaptureOutput_LargeOutput(t *testing.T) {
 	// Generate a large string
 	var expectedBuilder strings.Builder
 	for i := 0; i < 1000; i++ {
-		expectedBuilder.WriteString(fmt.Sprintf("Line %d\n", i))
+		_, _ = fmt.Fprintf(&expectedBuilder, "Line %d\n", i)
 	}
 	expected := expectedBuilder.String()
 
