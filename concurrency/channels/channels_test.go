@@ -8,8 +8,9 @@ import (
 
 func TestChannelsProgram(t *testing.T) {
 	output := testutils.CaptureOutput(main)
-	expected := "-5 17 12\n"
-	if output != expected {
-		t.Errorf("Expected output %q, got %q", expected, output)
+	expectedInOrder := "17 -5 12\n"
+	expectedOutOfOrder := "-5 17 12\n"
+	if output != expectedOutOfOrder && output != expectedInOrder {
+		t.Errorf("Expected output %q or %q, got %q", expectedOutOfOrder, expectedInOrder, output)
 	}
 }
