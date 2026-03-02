@@ -4,11 +4,11 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestPackagesProgram(t *testing.T) {
-	output := testutils.CaptureOutput(main)
+	output := capture.CaptureOutput(main)
 
 	// The program outputs "My favorite number is X" where X is a random number from 0-9
 	expectedPattern := `^My favorite number is [0-9]\n$`

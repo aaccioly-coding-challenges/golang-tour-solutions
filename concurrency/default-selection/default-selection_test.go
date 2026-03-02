@@ -5,12 +5,12 @@ import (
 	"testing"
 	"testing/synctest"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestDefaultSelectionProgram(t *testing.T) {
 	synctest.Test(t, func(t *testing.T) {
-		output := testutils.CaptureOutput(main)
+		output := capture.CaptureOutput(main)
 
 		if count := strings.Count(output, "tick"); count < 4 {
 			t.Errorf("Expected 'tick' 4 or more times, got %d", count)

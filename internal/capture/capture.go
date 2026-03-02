@@ -1,5 +1,5 @@
-// Package testutils provides common testing utilities for capturing program output
-package testutils
+// Package capture provides utilities for capturing program output during execution.
+package capture
 
 import (
 	"bytes"

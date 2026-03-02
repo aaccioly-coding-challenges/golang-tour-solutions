@@ -3,11 +3,11 @@ package main
 import (
 	"testing"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestTypeAssertionsProgram(t *testing.T) {
-	output, recovered := testutils.CaptureOutputWithPanic(main)
+	output, recovered := capture.CaptureOutputWithPanic(main)
 	expectedOutput := "hello\nhello true\n0 false\n"
 	if output != expectedOutput {
 		t.Errorf("Expected output %q, got %q", expectedOutput, output)

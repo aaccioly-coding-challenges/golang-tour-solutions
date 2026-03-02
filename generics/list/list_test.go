@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestList_Iterator(t *testing.T) {
@@ -98,7 +98,7 @@ func TestList_PopLast(t *testing.T) {
 }
 
 func TestListProgram(t *testing.T) {
-	output := testutils.CaptureOutput(main)
+	output := capture.CaptureOutput(main)
 	expected := "Hello\nWorld!\nSize: 2\nPopped: World!, New Size: 1\nPopped: Hello, New Size: 0\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)

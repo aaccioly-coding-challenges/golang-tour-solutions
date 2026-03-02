@@ -4,11 +4,11 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestSandboxProgram(t *testing.T) {
-	output := testutils.CaptureOutput(main)
+	output := capture.CaptureOutput(main)
 
 	// Single multiline pattern that matches the entire expected output structure
 	expectedPattern := "^Welcome to the playground!\n" +

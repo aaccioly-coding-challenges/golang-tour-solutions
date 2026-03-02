@@ -4,11 +4,11 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestSwitchProgram(t *testing.T) {
-	output := testutils.CaptureOutput(main)
+	output := capture.CaptureOutput(main)
 	pattern := `^Go runs on \w+\.\n$`
 	matched, _ := regexp.MatchString(pattern, output)
 	if !matched {

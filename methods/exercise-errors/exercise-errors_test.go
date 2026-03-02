@@ -4,11 +4,11 @@ import (
 	"math"
 	"testing"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestExerciseErrorsProgram(t *testing.T) {
-	output := testutils.CaptureOutput(main)
+	output := capture.CaptureOutput(main)
 	expected := "1.4142135623746899 <nil>\n0 cannot Sqrt negative number: -2\n"
 
 	if output != expected {

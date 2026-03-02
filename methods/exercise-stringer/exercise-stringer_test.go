@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestIPAddr_String(t *testing.T) {
@@ -29,7 +29,7 @@ func TestIPAddr_String(t *testing.T) {
 }
 
 func TestExerciseStringerProgram(t *testing.T) {
-	output := testutils.CaptureOutput(main)
+	output := capture.CaptureOutput(main)
 	expectedLines := []string{
 		"loopback: 127.0.0.1\n",
 		"googleDNS: 8.8.8.8\n",

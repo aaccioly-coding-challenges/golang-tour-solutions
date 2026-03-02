@@ -4,11 +4,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestGoroutinesProgram(t *testing.T) {
-	output := testutils.CaptureOutput(main)
+	output := capture.CaptureOutput(main)
 	if count := strings.Count(output, "hello"); count != 5 {
 		t.Errorf("Expected 'hello' 5 times, got %d", count)
 	}

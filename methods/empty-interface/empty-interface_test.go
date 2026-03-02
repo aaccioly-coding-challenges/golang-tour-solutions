@@ -3,11 +3,11 @@ package main
 import (
 	"testing"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestEmptyInterfaceProgram(t *testing.T) {
-	output := testutils.CaptureOutput(main)
+	output := capture.CaptureOutput(main)
 	expected := "(<nil>, <nil>)\n(42, int)\n(hello, string)\n"
 
 	if output != expected {

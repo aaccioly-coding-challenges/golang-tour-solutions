@@ -8,7 +8,7 @@ import (
 
 // TestForeverProgramDoesntEnd verifies that the main function runs indefinitely.
 // This test is different from others in the project because it tests an infinite loop,
-// so we can't use testutils.CaptureMainOutput which would hang forever.
+// so we can't use capture.CaptureMainOutput which would hang forever.
 func TestForeverProgramDoesntEnd(t *testing.T) {
 	// Create a context with timeout for the test
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)

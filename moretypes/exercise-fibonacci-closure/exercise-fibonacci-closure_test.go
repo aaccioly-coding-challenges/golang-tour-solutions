@@ -3,11 +3,11 @@ package main
 import (
 	"testing"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestFibonacciClosureProgram(t *testing.T) {
-	output := testutils.CaptureOutput(main)
+	output := capture.CaptureOutput(main)
 	expected := "1\n1\n2\n3\n5\n8\n13\n21\n34\n55\n"
 
 	if output != expected {

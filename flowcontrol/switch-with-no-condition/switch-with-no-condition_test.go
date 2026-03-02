@@ -5,11 +5,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestSwitchWithNoConditionProgram(t *testing.T) {
-	output := strings.TrimSpace(testutils.CaptureOutput(main))
+	output := strings.TrimSpace(capture.CaptureOutput(main))
 	switch output {
 	case "Good morning!", "Good afternoon.", "Good evening.":
 		// acceptable outputs
@@ -45,7 +45,7 @@ func Test_greet(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := strings.TrimSpace(testutils.CaptureOutput(func() {
+			got := strings.TrimSpace(capture.CaptureOutput(func() {
 				greet(tt.args.t)
 			}))
 			if got != tt.want {

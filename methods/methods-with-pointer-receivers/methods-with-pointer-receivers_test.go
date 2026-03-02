@@ -3,11 +3,11 @@ package main
 import (
 	"testing"
 
-	"github.com/aaccioly-coding-challenges/golang-tour-solutions/testutils"
+	"github.com/aaccioly-coding-challenges/golang-tour-solutions/internal/capture"
 )
 
 func TestMethodsWithPointerReceiversProgram(t *testing.T) {
-	output := testutils.CaptureOutput(main)
+	output := capture.CaptureOutput(main)
 	expected := "Before scaling: &{X:3 Y:4}, Abs: 5\nAfter scaling: &{X:15 Y:20}, Abs: 25\n"
 	if output != expected {
 		t.Errorf("Expected output %q, got %q", expected, output)
