@@ -1,6 +1,6 @@
 module github.com/aaccioly-coding-challenges/golang-tour-solutions
 
-go 1.27.1
+go 1.27.2
 
 require (
 	golang.org/x/text v0.43.0
